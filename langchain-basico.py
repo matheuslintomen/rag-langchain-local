@@ -12,7 +12,6 @@ que gostam de {atividade}
 prompt = modelo_prompt.format(dias=numero_dias,
     numero_criancas = numero_criancas,
     atividade=atividade)
-print(prompt)
 
 modelo = ChatOpenAI( base_url= "http://127.0.0.1:1234/v1",model="qwen/qwen3-4b-2507",api_key= "xxx")
 resposta = modelo.invoke(prompt)
