@@ -8,7 +8,7 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_openai import ChatOpenAI
 from langchain_core.output_parsers import StrOutputParser
-pdfs = DirectoryLoader(r"C:\Users\mathe\Downloads\Alura\Rag\docs\pdfs", glob="*.pdf").load()
+pdfs = DirectoryLoader("./pdfs", glob="*.pdf", loader_cls=PyPDFLoader).load()
 tokenizer = AutoTokenizer.from_pretrained("BAAI/bge-m3")
 splitter = CharacterTextSplitter.from_huggingface_tokenizer(tokenizer=tokenizer, chunk_size=500, chunk_overlap=50)
 pedacos = splitter.split_documents(pdfs)
